@@ -1,0 +1,11 @@
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .625rem 0;
+    font-size: .875rem;
+}
+.bg-dark {
+    --cz-bg-opacity: 1;
+    background-color: rgba(var(--cz-dark-rgb), var(--cz-bg-opacity)) !important;
+}

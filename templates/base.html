@@ -1,52 +1,323 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Caravans</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Logo</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+  <div class="shadow-sm">
+        <!-- Topbar-->
+        <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
+        <div class="navbar-sticky bg-light">
+          <div class="navbar navbar-expand-lg navbar-light">
+            <div class="container"><a class="navbar-brand d-none d-sm-block me-3 flex-shrink-0" href="index.html"><img src="img/logo-dark.png" width="142" alt="Caravans"></a><a class="navbar-brand d-sm-none me-2" href="index.html"><img src="img/logo-icon.png" width="74" alt="Caravans"></a>
+              <!-- Search-->
+              <div class="input-group d-none d-lg-flex flex-nowrap mx-4"><i class="ci-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                <input class="form-control rounded-start w-100" type="text" placeholder="Search for products">
+                <select class="form-select flex-shrink-0" style="width: 10.5rem;">
+                  <option>All categories</option>
+                  <option>Computers</option>
+                  <option>Smartphones</option>
+                  <option>TV, Video, Audio</option>
+                  <option>Cameras</option>
+                  <option>Headphones</option>
+                  <option>Wearables</option>
+                  <option>Printers</option>
+                  <option>Video Games</option>
+                  <option>Home Music</option>
+                  <option>Data Storage</option>
+                </select>
+              </div>
+              <!-- Toolbar-->
+              <div class="navbar-toolbar d-flex flex-shrink-0 align-items-center">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button><a class="navbar-tool navbar-stuck-toggler" href="#"><span class="navbar-tool-tooltip">Toggle menu</span>
+                  <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-menu"></i></div></a><a class="navbar-tool ms-1 ms-lg-0 me-n1 me-lg-2" href="#signin-modal" data-bs-toggle="modal">
+                  <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-user"></i></div>
+                  <div class="navbar-tool-text ms-n3"><small>Hello, Sign in</small>My Account</div></a>
+                <div class="navbar-tool dropdown ms-3"><a class="navbar-tool-icon-box bg-secondary dropdown-toggle" href="shop-cart.html"><span class="navbar-tool-label">4</span><i class="navbar-tool-icon ci-cart"></i></a><a class="navbar-tool-text" href="shop-cart.html"><small>My Cart</small>$1,247.00</a>
+                  <!-- Cart dropdown-->
+                  <div class="dropdown-menu dropdown-menu-end">
+                    <div class="widget widget-cart px-3 pt-2 pb-3" style="width: 20rem;">
+                      <div style="height: 15rem;" data-simplebar="init" data-simplebar-auto-hide="false"><div class="simplebar-wrapper" style="margin: 0px -16px 0px 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: auto; overflow: hidden;"><div class="simplebar-content" style="padding: 0px 16px 0px 0px;">
+                        <div class="widget-cart-item pb-2 border-bottom">
+                          <button class="btn-close text-danger" type="button" aria-label="Remove"><span aria-hidden="true">×</span></button>
+                          <div class="d-flex align-items-center"><a class="d-block flex-shrink-0" href="shop-single-v2.html"><img src="img/shop/cart/widget/05.jpg" width="64" alt="Product"></a>
+                            <div class="ps-2">
+                              <h6 class="widget-product-title"><a href="shop-single-v2.html">Bluetooth Headphones</a></h6>
+                              <div class="widget-product-meta"><span class="text-accent me-2">$259.<small>00</small></span><span class="text-muted">x 1</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="widget-cart-item py-2 border-bottom">
+                          <button class="btn-close text-danger" type="button" aria-label="Remove"><span aria-hidden="true">×</span></button>
+                          <div class="d-flex align-items-center"><a class="d-block flex-shrink-0" href="shop-single-v2.html"><img src="img/shop/cart/widget/06.jpg" width="64" alt="Product"></a>
+                            <div class="ps-2">
+                              <h6 class="widget-product-title"><a href="shop-single-v2.html">Cloud Security Camera</a></h6>
+                              <div class="widget-product-meta"><span class="text-accent me-2">$122.<small>00</small></span><span class="text-muted">x 1</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="widget-cart-item py-2 border-bottom">
+                          <button class="btn-close text-danger" type="button" aria-label="Remove"><span aria-hidden="true">×</span></button>
+                          <div class="d-flex align-items-center"><a class="d-block flex-shrink-0" href="shop-single-v2.html"><img src="img/shop/cart/widget/07.jpg" width="64" alt="Product"></a>
+                            <div class="ps-2">
+                              <h6 class="widget-product-title"><a href="shop-single-v2.html">Android Smartphone S10</a></h6>
+                              <div class="widget-product-meta"><span class="text-accent me-2">$799.<small>00</small></span><span class="text-muted">x 1</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="widget-cart-item py-2 border-bottom">
+                          <button class="btn-close text-danger" type="button" aria-label="Remove"><span aria-hidden="true">×</span></button>
+                          <div class="d-flex align-items-center"><a class="d-block flex-shrink-0" href="shop-single-v2.html"><img src="img/shop/cart/widget/08.jpg" width="64" alt="Product"></a>
+                            <div class="ps-2">
+                              <h6 class="widget-product-title"><a href="shop-single-v2.html">Android Smart TV Box</a></h6>
+                              <div class="widget-product-meta"><span class="text-accent me-2">$67.<small>00</small></span><span class="text-muted">x 1</span></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div></div></div></div><div class="simplebar-placeholder" style="width: 0px; height: 0px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar simplebar-visible" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar simplebar-visible" style="height: 0px; display: none; transform: translate3d(0px, 0px, 0px);"></div></div></div>
+                      <div class="d-flex flex-wrap justify-content-between align-items-center py-3">
+                        <div class="fs-sm me-2 py-2"><span class="text-muted">Subtotal:</span><span class="text-accent fs-base ms-1">$1,247.<small>00</small></span></div><a class="btn btn-outline-secondary btn-sm" href="shop-cart.html">Expand cart<i class="ci-arrow-right ms-1 me-n1"></i></a>
+                      </div><a class="btn btn-primary btn-sm d-block w-100" href="checkout-details.html"><i class="ci-card me-2 fs-base align-middle"></i>Checkout</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="navbar navbar-expand-lg navbar-light navbar-stuck-menu mt-n2 pt-0 pb-2">
+            <div class="container">
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                <!-- Search-->
+                <div class="input-group d-lg-none my-3"><i class="ci-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                  <input class="form-control rounded-start" type="text" placeholder="Search for products">
+                </div>
+                <!-- Primary menu-->
+                <ul class="navbar-nav center justify-content-center">
+                  <li class="nav-item dropdown active"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Categories</a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown position-static mb-0"><a class="dropdown-item border-bottom py-2" href="home-nft.html"><span class="d-block text-heading">NFT Marketplace<span class="badge bg-danger ms-1">NEW</span></span><small class="d-block text-muted">NFTs, Multi-vendor, Auctions</small></a>
+                        <div class="dropdown-menu h-100 animation-none mt-0 p-3"><a class="d-block" href="home-nft.html" style="width: 250px;"><img src="img/home/preview/th08.jpg" alt="NFT Marketplace"></a></div>
+                      </li>
+                      <li class="dropdown position-static mb-0"><a class="dropdown-item py-2 border-bottom" href="home-fashion-store-v1.html"><span class="d-block text-heading">Fashion Store v.1</span><small class="d-block text-muted">Classic shop layout</small></a>
+                        <div class="dropdown-menu h-100 animation-none mt-0 p-3"><a class="d-block" href="home-fashion-store-v1.html" style="width: 250px;"><img src="img/home/preview/th01.jpg" alt="Fashion Store v.1"></a></div>
+                      </li>
+                      <li class="dropdown position-static mb-0"><a class="dropdown-item py-2 border-bottom" href="home-electronics-store.html"><span class="d-block text-heading">Electronics Store</span><small class="d-block text-muted">Slider + Promo banners</small></a>
+                        <div class="dropdown-menu h-100 animation-none mt-0 p-3"><a class="d-block" href="home-electronics-store.html" style="width: 250px;"><img src="img/home/preview/th03.jpg" alt="Electronics Store"></a></div>
+                      </li>
+                      <li class="dropdown position-static mb-0"><a class="dropdown-item py-2 border-bottom" href="home-marketplace.html"><span class="d-block text-heading">Marketplace</span><small class="d-block text-muted">Multi-vendor, digital goods</small></a>
+                        <div class="dropdown-menu h-100 animation-none mt-0 p-3"><a class="d-block" href="home-marketplace.html" style="width: 250px;"><img src="img/home/preview/th04.jpg" alt="Marketplace"></a></div>
+                      </li>
+                      <li class="dropdown position-static mb-0"><a class="dropdown-item py-2 border-bottom" href="home-grocery-store.html"><span class="d-block text-heading">Grocery Store</span><small class="d-block text-muted">Full width + Side menu</small></a>
+                        <div class="dropdown-menu h-100 animation-none mt-0 p-3"><a class="d-block" href="home-grocery-store.html" style="width: 250px;"><img src="img/home/preview/th06.jpg" alt="Grocery Store"></a></div>
+                      </li>
+                      <li class="dropdown position-static mb-0"><a class="dropdown-item py-2 border-bottom" href="home-food-delivery.html"><span class="d-block text-heading">Food Delivery Service</span><small class="d-block text-muted">Food &amp; Beverages delivery</small></a>
+                        <div class="dropdown-menu h-100 animation-none mt-0 p-3"><a class="d-block" href="home-food-delivery.html" style="width: 250px;"><img src="img/home/preview/th07.jpg" alt="Food Delivery Service"></a></div>
+                      </li>
+                      <li class="dropdown position-static mb-0"><a class="dropdown-item py-2 border-bottom" href="home-fashion-store-v2.html"><span class="d-block text-heading">Fashion Store v.2</span><small class="d-block text-muted">Slider + Featured categories</small></a>
+                        <div class="dropdown-menu h-100 animation-none mt-0 p-3"><a class="d-block" href="home-fashion-store-v2.html" style="width: 250px;"><img src="img/home/preview/th02.jpg" alt="Fashion Store v.2"></a></div>
+                      </li>
+                      <li class="dropdown position-static mb-0"><a class="dropdown-item py-2" href="home-single-store.html"><span class="d-block text-heading">Single Product Store</span><small class="d-block text-muted">Single product / mono brand</small></a>
+                        <div class="dropdown-menu h-100 animation-none mt-0 p-3"><a class="d-block" href="home-single-store.html" style="width: 250px;"><img src="img/home/preview/th05.jpg" alt="Single Product / Brand Store"></a></div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Account</a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">Shop User Account</a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="account-orders.html">Orders History</a></li>
+                          <li><a class="dropdown-item" href="account-profile.html">Profile Settings</a></li>
+                          <li><a class="dropdown-item" href="account-address.html">Account Addresses</a></li>
+                          <li><a class="dropdown-item" href="account-payment.html">Payment Methods</a></li>
+                          <li><a class="dropdown-item" href="account-wishlist.html">Wishlist</a></li>
+                          <li><a class="dropdown-item" href="account-tickets.html">My Tickets</a></li>
+                          <li><a class="dropdown-item" href="account-single-ticket.html">Single Ticket</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">Vendor Dashboard</a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="dashboard-settings.html">Settings</a></li>
+                          <li><a class="dropdown-item" href="dashboard-purchases.html">Purchases</a></li>
+                          <li><a class="dropdown-item" href="dashboard-favorites.html">Favorites</a></li>
+                          <li><a class="dropdown-item" href="dashboard-sales.html">Sales</a></li>
+                          <li><a class="dropdown-item" href="dashboard-products.html">Products</a></li>
+                          <li><a class="dropdown-item" href="dashboard-add-new-product.html">Add New Product</a></li>
+                          <li><a class="dropdown-item" href="dashboard-payouts.html">Payouts</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">NFT Marketplace<span class="badge bg-danger ms-1">NEW</span></a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="nft-account-settings.html">Profile Settings</a></li>
+                          <li><a class="dropdown-item" href="nft-account-payouts.html">Wallet &amp; Payouts</a></li>
+                          <li><a class="dropdown-item" href="nft-account-my-items.html">My Items</a></li>
+                          <li><a class="dropdown-item" href="nft-account-my-collections.html">My Collections</a></li>
+                          <li><a class="dropdown-item" href="nft-account-favorites.html">Favorites</a></li>
+                          <li><a class="dropdown-item" href="nft-account-notifications.html">Notifications</a></li>
+                        </ul>
+                      </li>
+                      <li><a class="dropdown-item" href="account-signin.html">Sign In / Sign Up</a></li>
+                      <li><a class="dropdown-item" href="account-password-recovery.html">Password Recovery</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Pages</a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">Navbar Variants</a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="navbar-1-level-light.html">1 Level Light</a></li>
+                          <li><a class="dropdown-item" href="navbar-1-level-dark.html">1 Level Dark</a></li>
+                          <li><a class="dropdown-item" href="navbar-2-level-light.html">2 Level Light</a></li>
+                          <li><a class="dropdown-item" href="navbar-2-level-dark.html">2 Level Dark</a></li>
+                          <li><a class="dropdown-item" href="navbar-3-level-light.html">3 Level Light</a></li>
+                          <li><a class="dropdown-item" href="navbar-3-level-dark.html">3 Level Dark</a></li>
+                          <li><a class="dropdown-item" href="home-electronics-store.html">Electronics Store</a></li>
+                          <li><a class="dropdown-item" href="home-marketplace.html">Marketplace</a></li>
+                          <li><a class="dropdown-item" href="home-grocery-store.html">Side Menu (Grocery)</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                      <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
+                      <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">Help Center</a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="help-topics.html">Help Topics</a></li>
+                          <li><a class="dropdown-item" href="help-single-topic.html">Single Topic</a></li>
+                          <li><a class="dropdown-item" href="help-submit-request.html">Submit a Request</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">404 Not Found</a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="404-simple.html">404 - Simple Text</a></li>
+                          <li><a class="dropdown-item" href="404-illustration.html">404 - Illustration</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="sticky-footer.html">Sticky Footer Demo</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">Blog</a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">Blog List Layouts</a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="blog-list-sidebar.html">List with Sidebar</a></li>
+                          <li><a class="dropdown-item" href="blog-list.html">List no Sidebar</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">Blog Grid Layouts</a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="blog-grid-sidebar.html">Grid with Sidebar</a></li>
+                          <li><a class="dropdown-item" href="blog-grid.html">Grid no Sidebar</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">Single Post Layouts</a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="blog-single-sidebar.html">Article with Sidebar</a></li>
+                          <li><a class="dropdown-item" href="blog-single.html">Article no Sidebar</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Docs / Components</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="docs/dev-setup.html">
+                          <div class="d-flex">
+                            <div class="lead text-muted pt-1"><i class="ci-book"></i></div>
+                            <div class="ms-2"><span class="d-block text-heading">Documentation</span><small class="d-block text-muted">Kick-start customization</small></div>
+                          </div></a></li>
+                      <li class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="components/typography.html">
+                          <div class="d-flex">
+                            <div class="lead text-muted pt-1"><i class="ci-server"></i></div>
+                            <div class="ms-2"><span class="d-block text-heading">Components<span class="badge bg-info ms-2">40+</span></span><small class="d-block text-muted">Faster page building</small></div>
+                          </div></a></li>
+                      <li class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="docs/changelog.html">
+                          <div class="d-flex">
+                            <div class="lead text-muted pt-1"><i class="ci-edit"></i></div>
+                            <div class="ms-2"><span class="d-block text-heading">Changelog<span class="badge bg-success ms-2">v2.5.1</span></span><small class="d-block text-muted">Regular updates</small></div>
+                          </div></a></li>
+                      <li class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="mailto:support@createx.studio">
+                          <div class="d-flex">
+                            <div class="lead text-muted pt-1"><i class="ci-help"></i></div>
+                            <div class="ms-2"><span class="d-block text-heading">Support</span><small class="d-block text-muted">support@createx.studio</small></div>
+                          </div></a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
+  </div>
     <div class="container">
       {% block content %}
       {% endblock %}
     </div>
+
+  <div class="container-fluid">
+  <footer class="py-5">
+    <div class="row">
+      <div class="col-6 col-md-2 mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-5 offset-md-1 mb-3">
+        <form>
+          <h5>Subscribe to our newsletter</h5>
+          <p>Monthly digest of what's new and exciting from us.</p>
+          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+            <label for="newsletter1" class="visually-hidden">Email address</label>
+            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+            <button class="btn btn-primary" type="button">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© 2023 Company, Inc. All rights reserved.</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+      </ul>
+    </div>
+  </footer>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </body>
 </html>
