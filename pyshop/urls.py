@@ -23,5 +23,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('products/', include('products.urls')),
     path('products/dashboard/', TemplateView.as_view(template_name='dashboard.html'), name='dashboard'),
-    path('products/add_caravan/', TemplateView.as_view(template_name='products/add_caravan.html'), name='add_caravan'),
 ]
