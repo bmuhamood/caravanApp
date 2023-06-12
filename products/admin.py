@@ -4,7 +4,6 @@ from .models import Product, Offer, ProductImage
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'price', 'stock', 'manufacturer', 'year', 'condition', 'dimensions', 'weight', 'availability')
 
-
 class OfferAdmin(admin.ModelAdmin):
     list_display = ('code', 'description', 'discount')
 
