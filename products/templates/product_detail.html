@@ -91,9 +91,17 @@
               </div>
 <div class="mt-4 mb-3">
   <h5 class="text-uppercase" style="font-size: 20px; font-weight: 600; color: #333;">{{ product.name }}</h5>
-    <span class="text-uppercase text-muted brand" style="color: #888;">Dimensions: {{ product.dimensions }}</span>
+
   <div class="price d-flex flex-row align-items-center">
-    <span class="act-price" style="font-size: 18px; color: #333;">AED {{ product.price }}</span>
+
+      <span class="act-price" style="font-size: 18px; color: #333;">
+  <b style="color: red;">AED</b> {{ product.price }}
+  <small>
+    <i class="fa fa-angle-right"></i>
+    {{ product.currency }}
+  </small>
+</span>
+
     <div class="mr-5 px-5">
       <small class="dis-price" style="color: #336699;">Availability: {{ product.availability }}</small>
     </div>
@@ -103,6 +111,11 @@
               <p class="about">{{ product.description }}</p>
               <div class="sizes mt-5">
                 <h6 class="text-uppercase">Features</h6>
+
+<span class="dimensions mt-3 mb-3" style="font-size: 14px; color: #333;">
+  <strong>Dimensions:</strong>
+  {{ product.dimensions }}
+</span>
                   <p style="background-color: #f2f2f2; color: #333; padding: 10px;">{{ product.features|linebreaksbr }}</p>
               </div>
               <div class="cart mt-4 align-items-center">
