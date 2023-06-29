@@ -28,6 +28,14 @@ class Brand(models.Model):
     def __str__(self):
         return self.name
 
+
+class SliderImage(models.Model):
+    image = models.ImageField(upload_to='slider_images/')
+
+    def __str__(self):
+        return self.image.name
+
+
 class Offer(models.Model):
     code = models.CharField(max_length=10)
     description = models.CharField(max_length=255)
