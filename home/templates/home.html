@@ -2,6 +2,11 @@
 
 {% block content %}
   {% load static %}
+<style>
+  .no-underline {
+  text-decoration: none;
+}
+</style>
   <section class="py-5 text-center mt-2" style="position: relative; margin-bottom: 20px;">
     <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel" style="position: absolute; top: 0; left: 0; width: 100%;">
       <div class="carousel-inner">
@@ -39,35 +44,53 @@
     </div>
   </section>
 
-  <div class="album py-5 bg-body-tertiary mt-5">
-    <div class="container">
-      <h2>New Caravans</h2>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        {% for product in products %}
-        <div class="col">
-          <div class="card shadow-sm">
-            {% if product.images.all %}
-              <img src="{{ product.images.first.images.url }}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="{{ product.name }}">
-            {% else %}
-              <img src="{% static 'images/caravan.jpg' %}" class="card-img-top" alt="No Image">
-            {% endif %}
-            <div class="card-body">
-              <p class="card-text">{{ product.name }}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
-                </div>
-                <small class="text-body-secondary">AED {{ product.price }}</small>
+
+<section class="mt-5">
+  <h2>Brands</h2>
+  <ul>
+    {% for brand in brands %}
+      <li>
+        <img src="{{ brand.logo.url }}" alt="{{ brand.name }} Logo">
+        {{ brand.name }}
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<div class="album py-5 bg-body-tertiary mt-5">
+  <div class="container">
+    <h2>New Caravans</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+      {% for product in products %}
+      <div class="col">
+        <div class="card shadow-sm">
+          {% if product.images.all %}
+          <a href="{% url 'products:product_detail' product.id %}"><img src="{{ product.images.first.images.url }}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="{{ product.name }}"></a>
+          {% else %}
+            <img src="{% static 'images/caravan.jpg' %}" class="card-img-top" alt="No Image">
+          {% endif %}
+          <div class="card-body">
+            <div class="card-overlay">
+              <a href="{% url 'products:product_detail' product.id %}" class="card-title no-underline">{{ product.name }}</a>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">{{ product.manufacturer }}</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">{{ product.year }}</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">{{ product.condition }}</button>
               </div>
+              <small class="text-body-secondary">AED {{ product.price }}</small>
             </div>
           </div>
         </div>
-        {% endfor %}
       </div>
+      {% endfor %}
     </div>
   </div>
+</div>
+
+
+
 
 <section class="testimonials bg-light mt-5">
   <div class="container">
