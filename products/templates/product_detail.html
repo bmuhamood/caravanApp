@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+{% load static %}
+
 <style>
   .remaining-images {
     display: flex;
@@ -36,13 +39,13 @@
     background-color: #0056b3;
   }
 </style>
+
 <script>
-  function change_image(image){
+  function changeImage(image) {
     var container = document.getElementById("main-image");
     container.src = image.src;
   }
-  document.addEventListener("DOMContentLoaded", function(event) {
-  });
+
   function nextImage() {
     // Add logic to switch to the next image
   }
@@ -53,70 +56,61 @@
     <div class="col-md-12">
       <div class="card">
         <div class="row">
-
-<!--          will fix some errors in the below code to enable next button-->
-<div class="col-md-6">
-  <div class="images p-3">
-    <div class="text-center p-4">
-      <img id="main-image" src="{{ product.images.first.images.url }}" width="500" height="400" />
-    </div>
-    <div class="thumbnail text-center">
-      {% for image in product.images.all|slice:":3" %}
-      <img onclick="change_image(this)" src="{{ image.images.url }}" width="150">
-      {% endfor %}
-      {% if product.images.count > 3 %}
-      <div class="remaining-images">
-        <div class="circle">
-          <span>+{{ product.images.count|add:"-3" }}</span>
-        </div>
-        <img src="path_to_next_arrow_image" alt="Next" onclick="nextImage()" style="filter: invert(1);"/>
-      </div>
-      {% endif %}
-    </div>
-  </div>
-</div>
-
-
+          <div class="col-md-6">
+            <div class="images p-3">
+              <div class="text-center p-4">
+                <img id="main-image" src="{{ product.images.first.images.url }}" width="500" height="400" />
+              </div>
+              <div class="thumbnail text-center">
+                {% for image in product.images.all|slice:":3" %}
+                  <img onclick="changeImage(this)" src="{{ image.images.url }}" width="150">
+                {% endfor %}
+                {% if product.images.count > 3 %}
+                  <div class="remaining-images">
+                    <div class="circle">
+                      <span>+{{ product.images.count|add:"-3" }}</span>
+                    </div>
+                    <img src="{% static 'path_to_next_arrow_image' %}" alt="Next" onclick="nextImage()" style="filter: invert(1);"/>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
 
           <div class="col-md-6">
             <div class="product p-4">
               <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
-                    <a href="{% url 'home' %}" class="text-decoration-none">
-                  <i class="fa fa-long-arrow-left"></i>
-                  <span class="ml-1">Back</span>
-                    </a>
+                  <a href="{% url 'products:index' %}" class="text-decoration-none">
+                    <i class="fa fa-long-arrow-left"></i>
+                    <span class="ml-1">Back</span>
+                  </a>
                 </div>
                 <i class="fa fa-shopping-cart text-muted"></i>
               </div>
-<div class="mt-4 mb-3">
-  <h5 class="text-uppercase" style="font-size: 20px; font-weight: 600; color: #333;">{{ product.name }}</h5>
-
-  <div class="price d-flex flex-row align-items-center">
-
-      <span class="act-price" style="font-size: 18px; color: #333;">
-  <b style="color: red;">AED</b> {{ product.price }}
-  <small>
-    <i class="fa fa-angle-right"></i>
-    {{ product.currency }}
-  </small>
-</span>
-
-    <div class="mr-5 px-5">
-      <small class="dis-price" style="color: #336699;">Availability: {{ product.availability }}</small>
-    </div>
-  </div>
-</div>
-
+              <div class="mt-4 mb-3">
+                <h5 class="text-uppercase" style="font-size: 20px; font-weight: 600; color: #333;">{{ product.name }}</h5>
+                <div class="price d-flex flex-row align-items-center">
+                  <span class="act-price" style="font-size: 18px; color: #333;">
+                    <b style="color: red;">AED</b> {{ product.price }}
+                    <small>
+                      <i class="fa fa-angle-right"></i>
+                      {{ product.currency }}
+                    </small>
+                  </span>
+                  <div class="mr-5 px-5">
+                    <small class="dis-price" style="color: #336699;">Availability: {{ product.availability }}</small>
+                  </div>
+                </div>
+              </div>
               <p class="about">{{ product.description }}</p>
               <div class="sizes mt-5">
                 <h6 class="text-uppercase">Features</h6>
-
-<span class="dimensions mt-3 mb-3" style="font-size: 14px; color: #333;">
-  <strong>Dimensions:</strong>
-  {{ product.dimensions }}
-</span>
-                  <p style="background-color: #f2f2f2; color: #333; padding: 10px;">{{ product.features|linebreaksbr }}</p>
+                <span class="dimensions mt-3 mb-3" style="font-size: 14px; color: #333;">
+                  <strong>Dimensions:</strong>
+                  {{ product.dimensions }}
+                </span>
+                <p style="background-color: #f2f2f2; color: #333; padding: 10px;">{{ product.features|linebreaksbr }}</p>
               </div>
               <div class="cart mt-4 align-items-center">
                 <button class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button>
@@ -130,5 +124,6 @@
     </div>
   </div>
 </div>
+
 
 {% endblock %}
