@@ -106,32 +106,6 @@ s0.parentNode.insertBefore(s1,s0);
         <li class="nav-item">
           <a class="nav-link" href="{% url 'products:index' %}">Caravans</a>
         </li>
-<!--        <li class="nav-item dropdown">-->
-<!--          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--            Dropdown-->
-<!--          </a>-->
-<!--          <ul class="dropdown-menu">-->
-<!--            <li><a class="dropdown-item" href="#">Action</a></li>-->
-<!--            <li><a class="dropdown-item" href="#">Another action</a></li>-->
-<!--            <li>-->
-<!--              <hr class="dropdown-divider">-->
-<!--            </li>-->
-<!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
-<!--          </ul>-->
-<!--        </li>-->
-<!--        <li class="nav-item dropdown">-->
-<!--          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--            Dropdown-->
-<!--          </a>-->
-<!--          <ul class="dropdown-menu">-->
-<!--            <li><a class="dropdown-item" href="#">Action</a></li>-->
-<!--            <li><a class="dropdown-item" href="#">Another action</a></li>-->
-<!--            <li>-->
-<!--              <hr class="dropdown-divider">-->
-<!--            </li>-->
-<!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
-<!--          </ul>-->
-<!--        </li>-->
         <li class="nav-item">
           <a class="nav-link" href="{% url 'contact:contact_us' %}">Contact Us</a>
         </li>
@@ -156,14 +130,22 @@ s0.parentNode.insertBefore(s1,s0);
 
 
 
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'admin:index' %}">Log In</a>
-        </li>
+{% if user.is_authenticated %}
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'admin:logout' %}">Log Out</a>
+  </li>
+  <li class="nav-item">
+    <span class="nav-link" style="color: blue;">Welcome, {{ user.username }}</span>
+  </li>
+{% else %}
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'admin:index' %}">Log In</a>
+  </li>
+{% endif %}
+
+
       </ul>
       <div class="search-and-icons">
-<!--        <form class="d-flex mb-2 me-2" role="search">-->
-<!--          <input class="form-control me-2" type="search" aria-label="Search">-->
-<!--        </form>-->
         <div class="user-icons d-flex mb-2">
           <div class="profile"><i class="bi bi-person"></i></div>
           <div class="wishlist"><i class="bi bi-heart"></i></div>
