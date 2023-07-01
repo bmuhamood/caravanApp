@@ -72,7 +72,7 @@
       <div class="col">
         <div class="card shadow-sm">
           {% if product.images.all %}
-            <img src="{{ product.images.first.images.url }}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="{{ product.name }}">
+            <a href="{% url 'products:product_detail' product.id %}"><img src="{{ product.images.first.images.url }}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="{{ product.name }}"></a>
           {% else %}
             <img src="{% static 'images/caravan.jpg' %}" class="card-img-top" alt="No Image">
           {% endif %}
